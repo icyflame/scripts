@@ -1,4 +1,6 @@
 require 'net/http'
+require 'dotenv'
+Dotenv.load
 
 WIKI_URL = "https://wiki.metakgp.org"
 ACCEPTED_RESPONSES = [200, 301, 302]
@@ -16,14 +18,13 @@ if ACCEPTED_RESPONSES.include? res.code.to_i
 
   require 'droplet_kit'
 
-  client = DropletKit::Client.new(access_TOKEN: TOKEN)
+  client = DropletKit::Client.new(access_token: TOKEN)
 
-  droplets = client.droplets.find(id: "#{DROPLET_ID}")
+  # droplets = client.droplets.find(id: "#{DROPLET_ID}")
+  # puts droplets.inspect
+  # puts droplets.snapshot_ids.inspect
 
-  puts droplets.inspect
-  puts droplets.snapshot_ids.inspect
-
-  snapshots = client.droplets.find(id: "#{DROPLET_ID}")
+  snapshots = client.droplets.snapshots(id: "#{DROPLET_ID}")
 
   snapshots.each do |snapshot|
     puts "#{snapshot.name} | #{snapshot.id} created at #{snapshot.created_at}"

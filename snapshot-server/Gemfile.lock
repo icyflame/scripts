@@ -17,6 +17,7 @@ GEM
     concurrent-ruby (1.0.5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    dotenv (2.2.1)
     droplet_kit (2.1.0)
       activesupport (> 3.0, < 5.1)
       faraday (~> 0.9.1)
@@ -47,6 +48,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   droplet_kit
 
 BUNDLED WITH
