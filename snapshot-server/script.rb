@@ -26,7 +26,7 @@ if ACCEPTED_RESPONSES.include? res.code.to_i
   snapshots = client.droplets.find(id: "#{DROPLET_ID}")
 
   snapshots.each do |snapshot|
-    puts "#{snapshot.name} created at #{snapshot.created_at}"
+    puts "#{snapshot.name} | #{snapshot.id} created at #{snapshot.created_at}"
   end
 
   # TODO: Decide the ID of the snapshot that we are going to delete
